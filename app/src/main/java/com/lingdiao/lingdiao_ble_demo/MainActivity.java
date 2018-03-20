@@ -8,8 +8,10 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    /** Called when the activity is first created. */
-    private Button autopairbtn=null;
+    /**
+     * Called when the activity is first created.
+     */
+    private Button autopairbtn = null;
     private BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
     @Override
@@ -17,14 +19,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        autopairbtn=(Button) findViewById(R.id.button1);
+        autopairbtn = (Button) findViewById(R.id.button1);
         autopairbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!bluetoothAdapter.isEnabled())
-                {
+                if (!bluetoothAdapter.isEnabled()) {
                     bluetoothAdapter.enable();//异步的，不会等待结果，直接返回。
-                }else{
+                } else {
                     bluetoothAdapter.startDiscovery();
                 }
             }
