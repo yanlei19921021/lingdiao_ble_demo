@@ -2,6 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lingdiao.lingdiao_ble_demo">
 
+    <!-- 蓝牙权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
+    <receiver android:name="com.ywq.broadcast.BluetoothReceiver" >
+        <intent-filter android:priority="1000">
+            <action android:name="android.bluetooth.device.action.PAIRING_REQUEST"/>
+            <action android:name="android.bluetooth.device.action.FOUND" />
+        </intent-filter>
+    </receiver>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
